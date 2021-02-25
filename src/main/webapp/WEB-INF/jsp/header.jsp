@@ -3,9 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib uri="/WEB-INF/title.tld" prefix="custom" %>
+<c:set var="lang" value="en_EN"/>
+
 <c:choose>
     <c:when test="${cookie.lang.value=='ru_RU'}">
         <fmt:setBundle basename="messages_ru_RU"/>
+        <c:set var="lang" value="ru_RU"/>
     </c:when>
     <c:otherwise>
         <fmt:setBundle basename="messages_en_EN"/>
@@ -23,7 +26,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <title><custom:title locale="${cookie.lang.value}"/></title>
+    <title><custom:title locale="${lang}"/></title>
     <style>
         body {
             overflow-x: hidden;
